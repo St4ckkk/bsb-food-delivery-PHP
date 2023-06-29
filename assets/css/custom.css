@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Alumni+Sans+Inline+One&family=Alumni+Sans:wght@100&family=Amatic+SC:wght@700&family=Anton&family=Bebas+Neue&family=Cherry+Cream+Soda&family=Cormorant+Garamond:wght@400;600&family=Cormorant+SC:wght@300;400&family=Dancing+Script&family=Forum&family=Great+Vibes&family=Italianno&family=Kaushan+Script&family=Montserrat:wght@100;300&family=Nunito+Sans:wght@300&family=Oswald&family=Playball&family=Poppins:wght@300;400&family=Ramaraja&family=Roboto:wght@100&family=Source+Code+Pro:wght@200&family=Source+Serif+Pro&family=Tangerine:wght@400;700&family=The+Nautigal:wght@400;700&display=swap');
+body {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+* {
+  font-family: 'Cherry Cream Soda', cursive;
+}
+#textBtn {
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+#progressBar {
+  width: 100%;
+  height: 20px;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+#progressBar .progress {
+  width: 0%;
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn-wrapper input[type='file'] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.image-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  display: none;
+}
+
+.loading-animation {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-slide {
+  background: linear-gradient(to right, #ff9a00, #ff5252);
+  border-radius: 25px;
+  padding: 10px 40px 10px 40px;
+  color: white;
+  font-weight: bold;
+  border: 2px solid transparent;
+}
+.btn-slide:hover {
+  background-color: transparent;
+  border-color: linear-gradient(to right, #ff9a00, #ff5252);
+  border-width: 2px;
+  color: white;
+  transition: 0.5s;
+}
+
+.cart {
+  background: white;
+  border-radius: 25%;
+}
+.company-logo {
+  max-width: 100%;
+  border-radius: 25px;
+  height: auto;
+  max-height: 40px; /* Adjust the maximum height as needed */
+}
+#count {
+  font-size: 12px;
+}
+#hero-carousel-indicators {
+  display: flex;
+  justify-content: center;
+}
+
+#hero-carousel-indicators li {
+  background-color: linear-gradient(
+    to right,
+    #ff9a00,
+    #ff5252
+  ); /* Set the desired background color */
+}
+#heroCarousel li {
+  background-color: linear-gradient(to right, #ff9a00, #ff5252);
+}
+
+.txt-slide {
+  color: #db898a;
+}
+#txt-slide-desc {
+  color: rgb(180, 177, 177);
+}
+.navBg {
+  background-color: #242529;
+}
+.table-txt thead {
+  font-size: 15px;
+}
+.table-txt tbody {
+  font-size: 10px;
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .search-input {
+    flex: 1;
+    margin-right: 5px;
+  }
+
+  .search-input input {
+    width: 100%;
+  }
+  .btn {
+    margin-left: 5px;
+  }
+  .center-button {
+    display: flex;
+    justify-content: center;
+  }
+}
