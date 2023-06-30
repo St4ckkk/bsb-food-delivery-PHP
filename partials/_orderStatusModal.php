@@ -157,28 +157,37 @@ while ($statusmodalrow = mysqli_fetch_assoc($statusmodalresult)) {
 
     $deliveryBoyName = ""; // Initialize the variable
     // Function to generate a random tracking number
-    function generateRandomTrackingNumber($id)
-    {
-        // Generate a random string
-        $randomString = generateRandomString(10); // Specify the desired length of the tracking number
+    // Check if the function is already defined before declaring it
+    if (!function_exists('generateRandomTrackingNumber')) {
+        // Function to generate a random tracking number
+        function generateRandomTrackingNumber($id)
+        {
+            // Generate a random string
+            $randomString = generateRandomString(10); // Specify the desired length of the tracking number
 
-        // Combine the random string with the id
-        $trackingNumber = $randomString . $id;
+            // Combine the random string with the id
+            $trackingNumber = $randomString . $id;
 
-        return $trackingNumber;
-    }
-
-    // Function to generate a random string
-    function generateRandomString($length)
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
+            return $trackingNumber;
         }
-        return $randomString;
     }
+
+    if (!function_exists('generateRandomString')) {
+        // Function to generate a random string
+        function generateRandomString($length)
+        {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $charactersLength = strlen($characters);
+            $randomString = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomString .= $characters[rand(0, $charactersLength - 1)];
+            }
+            return $randomString;
+        }
+    }
+
+    // Rest of the code...
+
     if ($deliveryDetailRow) {
         $trackId = generateRandomTrackingNumber($deliveryDetailRow['id']);
         $deliveryBoyName = $deliveryDetailRow['deliveryBoyName'];
