@@ -21,7 +21,6 @@
             background-repeat: no-repeat;
             height: 100vh;
             margin: 0;
-
         }
 
         .rating-stars {
@@ -33,7 +32,6 @@
         }
 
         .rating-stars label.star {
-
             font-size: 24px;
             padding: 10px;
             cursor: pointer;
@@ -48,59 +46,57 @@
             color: #ffcc00;
         }
     </style>
-
 </head>
 
 <body>
     <?php include 'partials/_dbconnect.php'; ?>
     <?php include 'partials/_nav.php'; ?>
-    <?php
-    if ($loggedin) {
-    ?>
+    <?php if ($loggedin) { ?>
         <!-- Reviews and Ratings Form -->
         <div class="container my-3">
-            <h2 class="text-center">Add Review and Rating</h2>
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <form action="partials/_manageReviews.php" method="POST">
-                        <div class="form-group">
-                            <label for="rating">Rating:</label>
-                            <div class="rating-stars">
-                                <input type="radio" id="star5" name="rating" value="5" required />
-                                <label for="star5" class="star"><i class="fas fa-star"></i></label>
-                                <input type="radio" id="star4" name="rating" value="4" required />
-                                <label for="star4" class="star"><i class="fas fa-star"></i></label>
-                                <input type="radio" id="star3" name="rating" value="3" required />
-                                <label for="star3" class="star"><i class="fas fa-star"></i></label>
-                                <input type="radio" id="star2" name="rating" value="2" required />
-                                <label for="star2" class="star"><i class="fas fa-star"></i></label>
-                                <input type="radio" id="star1" name="rating" value="1" required />
-                                <label for="star1" class="star"><i class="fas fa-star"></i></label>
-                            </div>
-                        </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">Add Review and Rating</h2>
+                            <form action="partials/_manageReviews.php" method="POST">
+                                <div class="form-group">
+                                    <label for="rating">Rating:</label>
+                                    <div class="rating-stars">
+                                        <input type="radio" id="star5" name="rating" value="5" required />
+                                        <label for="star5" class="star"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star4" name="rating" value="4" required />
+                                        <label for="star4" class="star"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star3" name="rating" value="3" required />
+                                        <label for="star3" class="star"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star2" name="rating" value="2" required />
+                                        <label for="star2" class="star"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star1" name="rating" value="1" required />
+                                        <label for="star1" class="star"><i class="fas fa-star"></i></label>
+                                    </div>
+                                </div>
 
-                        <div class="form-group">
-                            <label for="review">Review:</label>
-                            <textarea class="form-control" id="review" name="review" rows="5" required></textarea>
+                                <div class="form-group">
+                                    <label for="review">Review:</label>
+                                    <textarea class="form-control" id="review" name="review" rows="5" required></textarea>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="password">Password:</label>
+                                    <input class="form-control" id="password" name="password" type="password" placeholder="Enter your password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="color: white; background-image: linear-gradient(to right, #ff9a00, #ff5252); border-color: #ff9a00;">Submit</button>
+                            </form>
                         </div>
-                        <div class="form-group mt-3">
-                            <label for="password">Password:</label>
-                            <input class="form-control" id="password" name="password" type="password" placeholder="Enter your password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-
     <?php } else {
-        echo '<div class="container" style="min-height : 610px;">
+        echo '<div class="container" style="min-height: 610px;">
         <div class="alert alert-info my-3" style="background-color: #242529;">
             <font style="font-size:22px; color: white;"><center>Make a review? You need to <strong style="background-image: linear-gradient(to right, #ff9a00, #ff5252); -webkit-background-clip: text; -webkit-text-fill-color: transparent; cursor: pointer;"><a class="alert-link" data-toggle="modal" data-target="#loginModal"> Login</a></strong></center></font>
         </div></div>';
-    }
-    ?>
+    } ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
